@@ -15,5 +15,6 @@ namespace TOKI.UI
         public DateTime Date { get; set; }
         public string FoodName { get; set; }
         public int Portion { get; set; }
+        public double FoodCal { get; set; }
     }
 }

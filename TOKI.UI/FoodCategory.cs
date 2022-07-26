@@ -9,6 +9,6 @@ namespace TOKI.UI
     public class FoodCategory
     {
         public int Id { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
     }
 }
