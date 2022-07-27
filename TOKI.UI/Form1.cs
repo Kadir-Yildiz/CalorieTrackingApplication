@@ -33,6 +33,7 @@ namespace TOKI.UI
             AddSample();
             cbMealTypeReport.Text = "All";
             cbFoodCategoryReport.Text = "All";
+            FoodSortReport();
 
 
         }
@@ -427,18 +428,130 @@ namespace TOKI.UI
             {
                 startDate = Convert.ToDateTime(dtpStartDate.Value.ToShortDateString());
                 endDate = Convert.ToDateTime(dtpStartDate.Value.AddDays(7).ToShortDateString());
-
-                var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate).ToList();
-                dgvComparativeReport.DataSource = report;
+                if (mt != "All" && fc == "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate && r.MealType == mt).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
+                if (fc != "All" && mt == "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate && r.CategoryName == fc).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
+                if (mt != "All" && fc != "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate && r.CategoryName == fc && r.MealType == mt).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
+                if (mt == "All" && fc == "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
             }
             else if (rbMonthly.Checked)
             {
                 startDate = Convert.ToDateTime(dtpStartDate.Value.ToShortDateString());
                 endDate = Convert.ToDateTime(dtpStartDate.Value.AddMonths(1).ToShortDateString());
 
-                var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate).ToList();
-                dgvComparativeReport.DataSource = report;
+                if (mt != "All" && fc == "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate && r.MealType == mt).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
+                if (fc != "All" && mt == "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate && r.CategoryName == fc).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
+                if (mt != "All" && fc != "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate && r.CategoryName == fc && r.MealType == mt).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
+                if (mt == "All" && fc == "All")
+                {
+                    var report = db.Reports.Where(r => r.Date >= startDate && r.Date <= endDate).ToList();
+                    dgvComparativeReport.DataSource = report;
+                }
             }
+        }
+
+        private void FoodSortReport()
+        {
+            Context db = new Context();
+            var foods = db.Reports.Select(x => new
+            {
+                Name = x.FoodName,
+                Portion = x.Portion,
+                Calories = x.FoodCal,
+                MealType = x.MealType,
+            }).ToList();
+
+
+            var breakfast = foods.GroupBy(f => new
+            {
+                Name = f.Name,
+            }).Select(g => new
+            {
+                Name = g.Key.Name,
+                Calories = g.Where(x => x.MealType == "Breakfast").Select(x => x.Calories).Sum(),
+                BreakfastPortion = g.Where(x => x.MealType == "Breakfast").Select(x => x.Portion).Sum(),
+            }).OrderByDescending(f => f.BreakfastPortion);
+
+            dgvBreakfast.DataSource = breakfast.ToList();
+
+
+
+
+            var lunch = foods.GroupBy(f => new
+            {
+                Name = f.Name,
+            }).Select(g => new
+            {
+                Name = g.Key.Name,
+                Calories = g.Where(x => x.MealType == "Lunch").Select(x => x.Calories).Sum(),
+                LunchPortion = g.Where(x => x.MealType == "Lunch").Select(x => x.Portion).Sum(),
+            }).OrderByDescending(f => f.LunchPortion);
+
+            dgvLunch.DataSource = lunch.ToList();
+
+            var dinner = foods.GroupBy(f => new
+            {
+                Name = f.Name,
+            }).Select(g => new
+            {
+                Name = g.Key.Name,
+                Calories = g.Where(x => x.MealType == "Dinner").Select(x => x.Calories).Sum(),
+                DinnerPortion = g.Where(x => x.MealType == "Dinner").Select(x => x.Portion).Sum(),
+            }).OrderByDescending(f => f.DinnerPortion);
+
+            dgvDinner.DataSource = dinner.ToList();
+
+
+
+
+            var snack = foods.GroupBy(f => new
+            {
+                Name = f.Name,
+            }).Select(g => new
+            {
+                Name = g.Key.Name,
+                Calories = g.Where(x => x.MealType == "Snack").Select(x => x.Calories).Sum(),
+                SnackPortion = g.Where(x => x.MealType == "Snack").Select(x => x.Portion).Sum(),
+            }).OrderByDescending(f => f.SnackPortion);
+
+            dgvSnack.DataSource = snack.ToList();
+
+
+
+
+
+
+
+
+
+
         }
     }
 }
