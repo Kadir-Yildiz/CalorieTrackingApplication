@@ -28,9 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageDaily = new System.Windows.Forms.TabPage();
+            this.txtDailyCal = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnOther = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.dgvDailyReport = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.btnDrinkCal = new System.Windows.Forms.Button();
             this.btnSnackCal = new System.Windows.Forms.Button();
@@ -38,8 +45,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlCal = new System.Windows.Forms.Panel();
             this.pnlCalSum = new System.Windows.Forms.Panel();
+            this.lblPercent = new System.Windows.Forms.Label();
+            this.pnlCal = new System.Windows.Forms.Panel();
             this.tabPageCreateFood = new System.Windows.Forms.TabPage();
             this.dgvFoods = new System.Windows.Forms.DataGridView();
             this.btnCategorySave = new System.Windows.Forms.Button();
@@ -53,51 +61,45 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtFoodName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.tabPageComparativeReport = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.cbFoodCategoryReport = new System.Windows.Forms.ComboBox();
+            this.cbMealTypeReport = new System.Windows.Forms.ComboBox();
+            this.btnDisplay = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.rbMonthly = new System.Windows.Forms.RadioButton();
+            this.rbWeekly = new System.Windows.Forms.RadioButton();
+            this.rbDaily = new System.Windows.Forms.RadioButton();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dgvComparativeReport = new System.Windows.Forms.DataGridView();
             this.tabPageAddQuickFood = new System.Windows.Forms.TabPage();
             this.nudPortion = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.cbMealType = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.tabPageFoodSortReport = new System.Windows.Forms.TabPage();
             this.btnFoodSortReport = new System.Windows.Forms.Button();
             this.btnComparativeReport = new System.Windows.Forms.Button();
             this.btnAddQuickFood = new System.Windows.Forms.Button();
             this.btnCreateFood = new System.Windows.Forms.Button();
             this.btnDailyReport = new System.Windows.Forms.Button();
-            this.btnOther = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtDailyCal = new System.Windows.Forms.TextBox();
-            this.lblPercent = new System.Windows.Forms.Label();
-            this.tabPageFoodSortReport = new System.Windows.Forms.TabPage();
+            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPageDaily.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDailyReport)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.pnlCalSum.SuspendLayout();
             this.tabPageCreateFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.tabPageComparativeReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComparativeReport)).BeginInit();
             this.tabPageAddQuickFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPortion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -136,16 +138,74 @@
             this.tabPageDaily.Text = "DailyReport";
             this.tabPageDaily.UseVisualStyleBackColor = true;
             // 
+            // txtDailyCal
+            // 
+            this.txtDailyCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtDailyCal.Location = new System.Drawing.Point(9, 188);
+            this.txtDailyCal.Name = "txtDailyCal";
+            this.txtDailyCal.Size = new System.Drawing.Size(75, 26);
+            this.txtDailyCal.TabIndex = 34;
+            this.txtDailyCal.Text = "0 Cal";
+            this.txtDailyCal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox2.Location = new System.Drawing.Point(216, 14);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(75, 26);
+            this.textBox2.TabIndex = 33;
+            this.textBox2.Text = "2100 Cal";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnOther
+            // 
+            this.btnOther.Enabled = false;
+            this.btnOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnOther.Location = new System.Drawing.Point(885, 86);
+            this.btnOther.Name = "btnOther";
+            this.btnOther.Size = new System.Drawing.Size(134, 52);
+            this.btnOther.TabIndex = 32;
+            this.btnOther.Text = "0 cal";
+            this.btnOther.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.Location = new System.Drawing.Point(909, 41);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(100, 29);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "OTHER";
+            // 
             // dgvDailyReport
             // 
             this.dgvDailyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDailyReport.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvDailyReport.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvDailyReport.Location = new System.Drawing.Point(3, 259);
+            this.dgvDailyReport.Location = new System.Drawing.Point(3, 255);
             this.dgvDailyReport.Name = "dgvDailyReport";
             this.dgvDailyReport.RowHeadersWidth = 51;
             this.dgvDailyReport.RowTemplate.Height = 24;
-            this.dgvDailyReport.Size = new System.Drawing.Size(1081, 446);
+            this.dgvDailyReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDailyReport.Size = new System.Drawing.Size(1081, 450);
             this.dgvDailyReport.TabIndex = 30;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 28);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // txtNote
             // 
@@ -221,15 +281,6 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "MEAL";
             // 
-            // pnlCal
-            // 
-            this.pnlCal.BackColor = System.Drawing.Color.DarkGreen;
-            this.pnlCal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCal.Location = new System.Drawing.Point(0, 170);
-            this.pnlCal.Name = "pnlCal";
-            this.pnlCal.Size = new System.Drawing.Size(120, 30);
-            this.pnlCal.TabIndex = 19;
-            // 
             // pnlCalSum
             // 
             this.pnlCalSum.BackColor = System.Drawing.Color.LightGray;
@@ -239,6 +290,25 @@
             this.pnlCalSum.Name = "pnlCalSum";
             this.pnlCalSum.Size = new System.Drawing.Size(120, 200);
             this.pnlCalSum.TabIndex = 20;
+            // 
+            // lblPercent
+            // 
+            this.lblPercent.AutoSize = true;
+            this.lblPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPercent.Location = new System.Drawing.Point(34, 83);
+            this.lblPercent.Name = "lblPercent";
+            this.lblPercent.Size = new System.Drawing.Size(52, 25);
+            this.lblPercent.TabIndex = 20;
+            this.lblPercent.Text = "%50";
+            // 
+            // pnlCal
+            // 
+            this.pnlCal.BackColor = System.Drawing.Color.DarkGreen;
+            this.pnlCal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlCal.Location = new System.Drawing.Point(0, 170);
+            this.pnlCal.Name = "pnlCal";
+            this.pnlCal.Size = new System.Drawing.Size(120, 30);
+            this.pnlCal.TabIndex = 19;
             // 
             // tabPageCreateFood
             // 
@@ -254,8 +324,8 @@
             this.tabPageCreateFood.Controls.Add(this.label9);
             this.tabPageCreateFood.Controls.Add(this.txtFoodName);
             this.tabPageCreateFood.Controls.Add(this.btnSave);
-            this.tabPageCreateFood.Controls.Add(this.pictureBoxPhoto);
             this.tabPageCreateFood.Controls.Add(this.btnBrowse);
+            this.tabPageCreateFood.Controls.Add(this.pictureBoxPhoto);
             this.tabPageCreateFood.Location = new System.Drawing.Point(4, 25);
             this.tabPageCreateFood.Name = "tabPageCreateFood";
             this.tabPageCreateFood.Padding = new System.Windows.Forms.Padding(3);
@@ -385,16 +455,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // pictureBoxPhoto
-            // 
-            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(534, 20);
-            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
-            this.pictureBoxPhoto.Size = new System.Drawing.Size(191, 130);
-            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPhoto.TabIndex = 12;
-            this.pictureBoxPhoto.TabStop = false;
-            // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -410,17 +470,15 @@
             // 
             this.tabPageComparativeReport.Controls.Add(this.label8);
             this.tabPageComparativeReport.Controls.Add(this.label7);
-            this.tabPageComparativeReport.Controls.Add(this.comboBox2);
-            this.tabPageComparativeReport.Controls.Add(this.comboBox1);
-            this.tabPageComparativeReport.Controls.Add(this.button11);
-            this.tabPageComparativeReport.Controls.Add(this.label6);
+            this.tabPageComparativeReport.Controls.Add(this.cbFoodCategoryReport);
+            this.tabPageComparativeReport.Controls.Add(this.cbMealTypeReport);
+            this.tabPageComparativeReport.Controls.Add(this.btnDisplay);
             this.tabPageComparativeReport.Controls.Add(this.label5);
-            this.tabPageComparativeReport.Controls.Add(this.dateTimePicker2);
-            this.tabPageComparativeReport.Controls.Add(this.radioButton3);
-            this.tabPageComparativeReport.Controls.Add(this.radioButton2);
-            this.tabPageComparativeReport.Controls.Add(this.radioButton1);
-            this.tabPageComparativeReport.Controls.Add(this.dateTimePicker1);
-            this.tabPageComparativeReport.Controls.Add(this.dataGridView2);
+            this.tabPageComparativeReport.Controls.Add(this.rbMonthly);
+            this.tabPageComparativeReport.Controls.Add(this.rbWeekly);
+            this.tabPageComparativeReport.Controls.Add(this.rbDaily);
+            this.tabPageComparativeReport.Controls.Add(this.dtpStartDate);
+            this.tabPageComparativeReport.Controls.Add(this.dgvComparativeReport);
             this.tabPageComparativeReport.Location = new System.Drawing.Point(4, 25);
             this.tabPageComparativeReport.Name = "tabPageComparativeReport";
             this.tabPageComparativeReport.Padding = new System.Windows.Forms.Padding(3);
@@ -435,9 +493,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.Location = new System.Drawing.Point(210, 87);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 25);
+            this.label8.Size = new System.Drawing.Size(157, 25);
             this.label8.TabIndex = 44;
-            this.label8.Text = "Yemek Kategorisi";
+            this.label8.Text = "Food Categories";
             // 
             // label7
             // 
@@ -445,46 +503,42 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.Location = new System.Drawing.Point(210, 17);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 25);
+            this.label7.Size = new System.Drawing.Size(105, 25);
             this.label7.TabIndex = 43;
-            this.label7.Text = "Öğün";
+            this.label7.Text = "Meal Type";
             // 
-            // comboBox2
+            // cbFoodCategoryReport
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(215, 116);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(194, 33);
-            this.comboBox2.TabIndex = 42;
+            this.cbFoodCategoryReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbFoodCategoryReport.FormattingEnabled = true;
+            this.cbFoodCategoryReport.Items.AddRange(new object[] {
+            "All"});
+            this.cbFoodCategoryReport.Location = new System.Drawing.Point(215, 116);
+            this.cbFoodCategoryReport.Name = "cbFoodCategoryReport";
+            this.cbFoodCategoryReport.Size = new System.Drawing.Size(194, 33);
+            this.cbFoodCategoryReport.TabIndex = 42;
             // 
-            // comboBox1
+            // cbMealTypeReport
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(215, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 33);
-            this.comboBox1.TabIndex = 41;
+            this.cbMealTypeReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbMealTypeReport.FormattingEnabled = true;
+            this.cbMealTypeReport.Items.AddRange(new object[] {
+            "All"});
+            this.cbMealTypeReport.Location = new System.Drawing.Point(215, 45);
+            this.cbMealTypeReport.Name = "cbMealTypeReport";
+            this.cbMealTypeReport.Size = new System.Drawing.Size(194, 33);
+            this.cbMealTypeReport.TabIndex = 41;
             // 
-            // button11
+            // btnDisplay
             // 
-            this.button11.Location = new System.Drawing.Point(740, 67);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(162, 49);
-            this.button11.TabIndex = 40;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(448, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 25);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Bitiş Tarihi";
+            this.btnDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDisplay.Location = new System.Drawing.Point(453, 100);
+            this.btnDisplay.Name = "btnDisplay";
+            this.btnDisplay.Size = new System.Drawing.Size(162, 49);
+            this.btnDisplay.TabIndex = 40;
+            this.btnDisplay.Text = "Display Report\r\n";
+            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
             // label5
             // 
@@ -492,72 +546,65 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.Location = new System.Drawing.Point(448, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 25);
+            this.label5.Size = new System.Drawing.Size(99, 25);
             this.label5.TabIndex = 38;
-            this.label5.Text = "Başlangıç Tarihi";
+            this.label5.Text = "Start Date";
             // 
-            // dateTimePicker2
+            // rbMonthly
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(453, 119);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 30);
-            this.dateTimePicker2.TabIndex = 37;
+            this.rbMonthly.AutoSize = true;
+            this.rbMonthly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbMonthly.Location = new System.Drawing.Point(53, 121);
+            this.rbMonthly.Name = "rbMonthly";
+            this.rbMonthly.Size = new System.Drawing.Size(131, 29);
+            this.rbMonthly.TabIndex = 36;
+            this.rbMonthly.TabStop = true;
+            this.rbMonthly.Text = "MONTHLY";
+            this.rbMonthly.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbWeekly
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioButton3.Location = new System.Drawing.Point(53, 121);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(131, 29);
-            this.radioButton3.TabIndex = 36;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "MONTHLY";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbWeekly.AutoSize = true;
+            this.rbWeekly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbWeekly.Location = new System.Drawing.Point(53, 75);
+            this.rbWeekly.Name = "rbWeekly";
+            this.rbWeekly.Size = new System.Drawing.Size(117, 29);
+            this.rbWeekly.TabIndex = 35;
+            this.rbWeekly.TabStop = true;
+            this.rbWeekly.Text = "WEEKLY";
+            this.rbWeekly.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbDaily
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioButton2.Location = new System.Drawing.Point(53, 75);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(117, 29);
-            this.radioButton2.TabIndex = 35;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "WEEKLY";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbDaily.AutoSize = true;
+            this.rbDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbDaily.Location = new System.Drawing.Point(53, 29);
+            this.rbDaily.Name = "rbDaily";
+            this.rbDaily.Size = new System.Drawing.Size(90, 29);
+            this.rbDaily.TabIndex = 34;
+            this.rbDaily.TabStop = true;
+            this.rbDaily.Text = "DAILY";
+            this.rbDaily.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // dtpStartDate
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.radioButton1.Location = new System.Drawing.Point(53, 29);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 29);
-            this.radioButton1.TabIndex = 34;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "DAILY";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(453, 48);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 30);
+            this.dtpStartDate.TabIndex = 33;
             // 
-            // dateTimePicker1
+            // dgvComparativeReport
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(453, 48);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 30);
-            this.dateTimePicker1.TabIndex = 33;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 202);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1081, 503);
-            this.dataGridView2.TabIndex = 32;
+            this.dgvComparativeReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComparativeReport.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvComparativeReport.Location = new System.Drawing.Point(3, 202);
+            this.dgvComparativeReport.Name = "dgvComparativeReport";
+            this.dgvComparativeReport.RowHeadersWidth = 51;
+            this.dgvComparativeReport.RowTemplate.Height = 24;
+            this.dgvComparativeReport.Size = new System.Drawing.Size(1081, 503);
+            this.dgvComparativeReport.TabIndex = 32;
             // 
             // tabPageAddQuickFood
             // 
@@ -627,6 +674,16 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
+            // tabPageFoodSortReport
+            // 
+            this.tabPageFoodSortReport.Location = new System.Drawing.Point(4, 25);
+            this.tabPageFoodSortReport.Name = "tabPageFoodSortReport";
+            this.tabPageFoodSortReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFoodSortReport.Size = new System.Drawing.Size(1087, 708);
+            this.tabPageFoodSortReport.TabIndex = 4;
+            this.tabPageFoodSortReport.Text = "FoodSortReport";
+            this.tabPageFoodSortReport.UseVisualStyleBackColor = true;
+            // 
             // btnFoodSortReport
             // 
             this.btnFoodSortReport.BackColor = System.Drawing.Color.Bisque;
@@ -690,66 +747,15 @@
             this.btnDailyReport.UseVisualStyleBackColor = false;
             this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
-            // btnOther
+            // pictureBoxPhoto
             // 
-            this.btnOther.Enabled = false;
-            this.btnOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOther.Location = new System.Drawing.Point(885, 86);
-            this.btnOther.Name = "btnOther";
-            this.btnOther.Size = new System.Drawing.Size(134, 52);
-            this.btnOther.TabIndex = 32;
-            this.btnOther.Text = "0 cal";
-            this.btnOther.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(909, 41);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 29);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "OTHER";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(216, 14);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 26);
-            this.textBox2.TabIndex = 33;
-            this.textBox2.Text = "2100 Cal";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtDailyCal
-            // 
-            this.txtDailyCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtDailyCal.Location = new System.Drawing.Point(9, 188);
-            this.txtDailyCal.Name = "txtDailyCal";
-            this.txtDailyCal.Size = new System.Drawing.Size(75, 26);
-            this.txtDailyCal.TabIndex = 34;
-            this.txtDailyCal.Text = "0 Cal";
-            this.txtDailyCal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblPercent
-            // 
-            this.lblPercent.AutoSize = true;
-            this.lblPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPercent.Location = new System.Drawing.Point(34, 83);
-            this.lblPercent.Name = "lblPercent";
-            this.lblPercent.Size = new System.Drawing.Size(52, 25);
-            this.lblPercent.TabIndex = 20;
-            this.lblPercent.Text = "%50";
-            // 
-            // tabPageFoodSortReport
-            // 
-            this.tabPageFoodSortReport.Location = new System.Drawing.Point(4, 25);
-            this.tabPageFoodSortReport.Name = "tabPageFoodSortReport";
-            this.tabPageFoodSortReport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFoodSortReport.Size = new System.Drawing.Size(1087, 708);
-            this.tabPageFoodSortReport.TabIndex = 4;
-            this.tabPageFoodSortReport.Text = "FoodSortReport";
-            this.tabPageFoodSortReport.UseVisualStyleBackColor = true;
+            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(534, 20);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(191, 130);
+            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPhoto.TabIndex = 12;
+            this.pictureBoxPhoto.TabStop = false;
             // 
             // Form1
             // 
@@ -771,19 +777,20 @@
             this.tabPageDaily.ResumeLayout(false);
             this.tabPageDaily.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDailyReport)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.pnlCalSum.ResumeLayout(false);
             this.pnlCalSum.PerformLayout();
             this.tabPageCreateFood.ResumeLayout(false);
             this.tabPageCreateFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
             this.tabPageComparativeReport.ResumeLayout(false);
             this.tabPageComparativeReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComparativeReport)).EndInit();
             this.tabPageAddQuickFood.ResumeLayout(false);
             this.tabPageAddQuickFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPortion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -808,17 +815,15 @@
         private System.Windows.Forms.TabPage tabPageComparativeReport;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbFoodCategoryReport;
+        private System.Windows.Forms.ComboBox cbMealTypeReport;
+        private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.RadioButton rbMonthly;
+        private System.Windows.Forms.RadioButton rbWeekly;
+        private System.Windows.Forms.RadioButton rbDaily;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DataGridView dgvComparativeReport;
         private System.Windows.Forms.Button btnFoodSortReport;
         private System.Windows.Forms.Button btnComparativeReport;
         private System.Windows.Forms.Button btnAddQuickFood;
@@ -848,6 +853,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblPercent;
         private System.Windows.Forms.TabPage tabPageFoodSortReport;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 

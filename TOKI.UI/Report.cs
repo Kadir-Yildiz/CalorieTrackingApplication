@@ -10,6 +10,7 @@ namespace TOKI.UI
     {
         public int Id { get; set; }
         public string UserName { get; set; }
+        public string FullName { get; set; }
         public string MealType { get; set; }
         public string CategoryName { get; set; }
         public DateTime Date { get; set; }

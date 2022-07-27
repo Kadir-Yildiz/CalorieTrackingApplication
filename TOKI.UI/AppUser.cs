@@ -12,6 +12,7 @@ namespace TOKI.UI
         public string UserName { get; set; } // Email
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Password { get; set; }
 
     }
 }
