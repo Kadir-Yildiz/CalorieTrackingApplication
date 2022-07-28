@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,7 +77,19 @@ namespace TOKI.UI
             user.FirstName = txtFirstName.Text;
             user.LastName = txtLastName.Text;
             user.UserName = txtMail.Text + "@" + txtEmaill.Text + ".com";
-            user.Password = txtPasswordd.Text;
+
+
+            string password = txtPasswordd.Text.Trim();
+            HashSet<char> specialCharacters = new HashSet<char>() { '%', '$', '#', '.', '@', '*', '!', '-' };
+
+            if (password.Any(char.IsLower) && password.Any(char.IsDigit) && (password.Length >= 8) && password.Any(specialCharacters.Contains))
+            {
+                user.Password = txtPasswordd.Text.Trim();
+            }
+            else
+            {
+                MessageBox.Show("The Password is Not Valid! \n Has minimum 8 characters in length.\n At least one lowercase English letter.\n At least one digit. \n At least one special character.");
+            }
             db.AppUsers.Add(user);
             db.SaveChanges();
         }

@@ -41,7 +41,6 @@
             this.txtNote = new System.Windows.Forms.TextBox();
             this.btnDrinkCal = new System.Windows.Forms.Button();
             this.btnSnackCal = new System.Windows.Forms.Button();
-            this.btnMealCal = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,19 +81,22 @@
             this.label15 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tabPageFoodSortReport = new System.Windows.Forms.TabPage();
+            this.dgvSnack = new System.Windows.Forms.DataGridView();
+            this.dgvDinner = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.dgvLunch = new System.Windows.Forms.DataGridView();
+            this.dgvBreakfast = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnFoodSortReport = new System.Windows.Forms.Button();
             this.btnComparativeReport = new System.Windows.Forms.Button();
             this.btnAddQuickFood = new System.Windows.Forms.Button();
             this.btnCreateFood = new System.Windows.Forms.Button();
             this.btnDailyReport = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dgvBreakfast = new System.Windows.Forms.DataGridView();
-            this.dgvLunch = new System.Windows.Forms.DataGridView();
-            this.dgvSnack = new System.Windows.Forms.DataGridView();
-            this.dgvDinner = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAppUser = new System.Windows.Forms.Button();
+            this.btnMealCal = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageDaily.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDailyReport)).BeginInit();
@@ -109,18 +111,18 @@
             this.tabPageAddQuickFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPortion)).BeginInit();
             this.tabPageFoodSortReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBreakfast)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLunch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSnack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDinner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLunch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBreakfast)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageDaily);
+            this.tabControl1.Controls.Add(this.tabPageAddQuickFood);
             this.tabControl1.Controls.Add(this.tabPageCreateFood);
             this.tabControl1.Controls.Add(this.tabPageComparativeReport);
-            this.tabControl1.Controls.Add(this.tabPageAddQuickFood);
             this.tabControl1.Controls.Add(this.tabPageFoodSortReport);
             this.tabControl1.Location = new System.Drawing.Point(302, 9);
             this.tabControl1.Name = "tabControl1";
@@ -130,6 +132,9 @@
             // 
             // tabPageDaily
             // 
+            this.tabPageDaily.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPageDaily.Controls.Add(this.btnMealCal);
+            this.tabPageDaily.Controls.Add(this.btnAppUser);
             this.tabPageDaily.Controls.Add(this.txtDailyCal);
             this.tabPageDaily.Controls.Add(this.textBox2);
             this.tabPageDaily.Controls.Add(this.btnOther);
@@ -138,7 +143,6 @@
             this.tabPageDaily.Controls.Add(this.txtNote);
             this.tabPageDaily.Controls.Add(this.btnDrinkCal);
             this.tabPageDaily.Controls.Add(this.btnSnackCal);
-            this.tabPageDaily.Controls.Add(this.btnMealCal);
             this.tabPageDaily.Controls.Add(this.label4);
             this.tabPageDaily.Controls.Add(this.label2);
             this.tabPageDaily.Controls.Add(this.label1);
@@ -149,7 +153,6 @@
             this.tabPageDaily.Size = new System.Drawing.Size(1087, 708);
             this.tabPageDaily.TabIndex = 0;
             this.tabPageDaily.Text = "DailyReport";
-            this.tabPageDaily.UseVisualStyleBackColor = true;
             // 
             // txtDailyCal
             // 
@@ -173,20 +176,21 @@
             // 
             // btnOther
             // 
+            this.btnOther.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnOther.Enabled = false;
             this.btnOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOther.Location = new System.Drawing.Point(885, 86);
+            this.btnOther.Location = new System.Drawing.Point(885, 75);
             this.btnOther.Name = "btnOther";
             this.btnOther.Size = new System.Drawing.Size(134, 52);
             this.btnOther.TabIndex = 32;
             this.btnOther.Text = "0 cal";
-            this.btnOther.UseVisualStyleBackColor = true;
+            this.btnOther.UseVisualStyleBackColor = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(909, 41);
+            this.label16.Location = new System.Drawing.Point(909, 30);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(100, 29);
             this.label16.TabIndex = 31;
@@ -194,11 +198,14 @@
             // 
             // dgvDailyReport
             // 
+            this.dgvDailyReport.AllowUserToAddRows = false;
+            this.dgvDailyReport.AllowUserToDeleteRows = false;
             this.dgvDailyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDailyReport.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvDailyReport.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDailyReport.Location = new System.Drawing.Point(3, 255);
             this.dgvDailyReport.Name = "dgvDailyReport";
+            this.dgvDailyReport.ReadOnly = true;
             this.dgvDailyReport.RowHeadersWidth = 51;
             this.dgvDailyReport.RowTemplate.Height = 24;
             this.dgvDailyReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -222,9 +229,10 @@
             // 
             // txtNote
             // 
+            this.txtNote.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.txtNote.Enabled = false;
             this.txtNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtNote.Location = new System.Drawing.Point(294, 184);
+            this.txtNote.Location = new System.Drawing.Point(294, 173);
             this.txtNote.Name = "txtNote";
             this.txtNote.ReadOnly = true;
             this.txtNote.Size = new System.Drawing.Size(710, 28);
@@ -233,42 +241,33 @@
             // 
             // btnDrinkCal
             // 
+            this.btnDrinkCal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnDrinkCal.Enabled = false;
             this.btnDrinkCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDrinkCal.Location = new System.Drawing.Point(688, 86);
+            this.btnDrinkCal.Location = new System.Drawing.Point(688, 75);
             this.btnDrinkCal.Name = "btnDrinkCal";
             this.btnDrinkCal.Size = new System.Drawing.Size(134, 52);
             this.btnDrinkCal.TabIndex = 28;
             this.btnDrinkCal.Text = "0 cal";
-            this.btnDrinkCal.UseVisualStyleBackColor = true;
+            this.btnDrinkCal.UseVisualStyleBackColor = false;
             // 
             // btnSnackCal
             // 
+            this.btnSnackCal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnSnackCal.Enabled = false;
             this.btnSnackCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSnackCal.Location = new System.Drawing.Point(491, 86);
+            this.btnSnackCal.Location = new System.Drawing.Point(491, 75);
             this.btnSnackCal.Name = "btnSnackCal";
             this.btnSnackCal.Size = new System.Drawing.Size(134, 52);
             this.btnSnackCal.TabIndex = 26;
             this.btnSnackCal.Text = "0 cal";
-            this.btnSnackCal.UseVisualStyleBackColor = true;
-            // 
-            // btnMealCal
-            // 
-            this.btnMealCal.Enabled = false;
-            this.btnMealCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnMealCal.Location = new System.Drawing.Point(294, 86);
-            this.btnMealCal.Name = "btnMealCal";
-            this.btnMealCal.Size = new System.Drawing.Size(134, 52);
-            this.btnMealCal.TabIndex = 25;
-            this.btnMealCal.Text = "0 cal";
-            this.btnMealCal.UseVisualStyleBackColor = true;
+            this.btnSnackCal.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(712, 41);
+            this.label4.Location = new System.Drawing.Point(712, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 29);
             this.label4.TabIndex = 24;
@@ -278,7 +277,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(502, 41);
+            this.label2.Location = new System.Drawing.Point(502, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 29);
             this.label2.TabIndex = 22;
@@ -288,7 +287,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(321, 41);
+            this.label1.Location = new System.Drawing.Point(321, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 29);
             this.label1.TabIndex = 21;
@@ -325,6 +324,7 @@
             // 
             // tabPageCreateFood
             // 
+            this.tabPageCreateFood.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPageCreateFood.Controls.Add(this.dgvFoods);
             this.tabPageCreateFood.Controls.Add(this.btnCategorySave);
             this.tabPageCreateFood.Controls.Add(this.label13);
@@ -345,18 +345,23 @@
             this.tabPageCreateFood.Size = new System.Drawing.Size(1087, 708);
             this.tabPageCreateFood.TabIndex = 1;
             this.tabPageCreateFood.Text = "CreateFood";
-            this.tabPageCreateFood.UseVisualStyleBackColor = true;
             // 
             // dgvFoods
             // 
+            this.dgvFoods.AllowUserToAddRows = false;
+            this.dgvFoods.AllowUserToDeleteRows = false;
+            this.dgvFoods.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFoods.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvFoods.Location = new System.Drawing.Point(3, 230);
             this.dgvFoods.Name = "dgvFoods";
+            this.dgvFoods.ReadOnly = true;
             this.dgvFoods.RowHeadersWidth = 51;
             this.dgvFoods.RowTemplate.Height = 24;
+            this.dgvFoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFoods.Size = new System.Drawing.Size(1081, 475);
             this.dgvFoods.TabIndex = 27;
+            this.dgvFoods.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoods_CellClick);
             // 
             // btnCategorySave
             // 
@@ -491,6 +496,7 @@
             // 
             // tabPageComparativeReport
             // 
+            this.tabPageComparativeReport.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPageComparativeReport.Controls.Add(this.label8);
             this.tabPageComparativeReport.Controls.Add(this.label7);
             this.tabPageComparativeReport.Controls.Add(this.cbFoodCategoryReport);
@@ -508,13 +514,12 @@
             this.tabPageComparativeReport.Size = new System.Drawing.Size(1087, 708);
             this.tabPageComparativeReport.TabIndex = 2;
             this.tabPageComparativeReport.Text = "ComparativeReport";
-            this.tabPageComparativeReport.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(210, 87);
+            this.label8.Location = new System.Drawing.Point(555, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(157, 25);
             this.label8.TabIndex = 44;
@@ -524,7 +529,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(210, 17);
+            this.label7.Location = new System.Drawing.Point(397, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 25);
             this.label7.TabIndex = 43;
@@ -536,9 +541,9 @@
             this.cbFoodCategoryReport.FormattingEnabled = true;
             this.cbFoodCategoryReport.Items.AddRange(new object[] {
             "All"});
-            this.cbFoodCategoryReport.Location = new System.Drawing.Point(215, 116);
+            this.cbFoodCategoryReport.Location = new System.Drawing.Point(546, 45);
             this.cbFoodCategoryReport.Name = "cbFoodCategoryReport";
-            this.cbFoodCategoryReport.Size = new System.Drawing.Size(194, 33);
+            this.cbFoodCategoryReport.Size = new System.Drawing.Size(176, 33);
             this.cbFoodCategoryReport.TabIndex = 42;
             // 
             // cbMealTypeReport
@@ -547,27 +552,28 @@
             this.cbMealTypeReport.FormattingEnabled = true;
             this.cbMealTypeReport.Items.AddRange(new object[] {
             "All"});
-            this.cbMealTypeReport.Location = new System.Drawing.Point(215, 45);
+            this.cbMealTypeReport.Location = new System.Drawing.Point(364, 45);
             this.cbMealTypeReport.Name = "cbMealTypeReport";
-            this.cbMealTypeReport.Size = new System.Drawing.Size(194, 33);
+            this.cbMealTypeReport.Size = new System.Drawing.Size(176, 33);
             this.cbMealTypeReport.TabIndex = 41;
             // 
             // btnDisplay
             // 
+            this.btnDisplay.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDisplay.Location = new System.Drawing.Point(453, 100);
+            this.btnDisplay.Location = new System.Drawing.Point(908, 26);
             this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(162, 49);
+            this.btnDisplay.Size = new System.Drawing.Size(162, 52);
             this.btnDisplay.TabIndex = 40;
             this.btnDisplay.Text = "Display Report\r\n";
-            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.UseVisualStyleBackColor = false;
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(448, 20);
+            this.label5.Location = new System.Drawing.Point(763, 17);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 25);
             this.label5.TabIndex = 38;
@@ -577,7 +583,7 @@
             // 
             this.rbMonthly.AutoSize = true;
             this.rbMonthly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbMonthly.Location = new System.Drawing.Point(53, 121);
+            this.rbMonthly.Location = new System.Drawing.Point(236, 44);
             this.rbMonthly.Name = "rbMonthly";
             this.rbMonthly.Size = new System.Drawing.Size(131, 29);
             this.rbMonthly.TabIndex = 36;
@@ -589,7 +595,7 @@
             // 
             this.rbWeekly.AutoSize = true;
             this.rbWeekly.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbWeekly.Location = new System.Drawing.Point(53, 75);
+            this.rbWeekly.Location = new System.Drawing.Point(113, 44);
             this.rbWeekly.Name = "rbWeekly";
             this.rbWeekly.Size = new System.Drawing.Size(117, 29);
             this.rbWeekly.TabIndex = 35;
@@ -601,7 +607,7 @@
             // 
             this.rbDaily.AutoSize = true;
             this.rbDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbDaily.Location = new System.Drawing.Point(53, 29);
+            this.rbDaily.Location = new System.Drawing.Point(17, 44);
             this.rbDaily.Name = "rbDaily";
             this.rbDaily.Size = new System.Drawing.Size(90, 29);
             this.rbDaily.TabIndex = 34;
@@ -613,24 +619,28 @@
             // 
             this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(453, 48);
+            this.dtpStartDate.Location = new System.Drawing.Point(728, 48);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(200, 30);
+            this.dtpStartDate.Size = new System.Drawing.Size(165, 30);
             this.dtpStartDate.TabIndex = 33;
             // 
             // dgvComparativeReport
             // 
+            this.dgvComparativeReport.AllowUserToAddRows = false;
+            this.dgvComparativeReport.AllowUserToDeleteRows = false;
             this.dgvComparativeReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComparativeReport.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvComparativeReport.Location = new System.Drawing.Point(3, 202);
+            this.dgvComparativeReport.Location = new System.Drawing.Point(3, 113);
             this.dgvComparativeReport.Name = "dgvComparativeReport";
+            this.dgvComparativeReport.ReadOnly = true;
             this.dgvComparativeReport.RowHeadersWidth = 51;
             this.dgvComparativeReport.RowTemplate.Height = 24;
-            this.dgvComparativeReport.Size = new System.Drawing.Size(1081, 503);
+            this.dgvComparativeReport.Size = new System.Drawing.Size(1081, 592);
             this.dgvComparativeReport.TabIndex = 32;
             // 
             // tabPageAddQuickFood
             // 
+            this.tabPageAddQuickFood.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPageAddQuickFood.Controls.Add(this.nudPortion);
             this.tabPageAddQuickFood.Controls.Add(this.label14);
             this.tabPageAddQuickFood.Controls.Add(this.cbMealType);
@@ -642,7 +652,6 @@
             this.tabPageAddQuickFood.Size = new System.Drawing.Size(1087, 708);
             this.tabPageAddQuickFood.TabIndex = 3;
             this.tabPageAddQuickFood.Text = "AddQuickFood";
-            this.tabPageAddQuickFood.UseVisualStyleBackColor = true;
             // 
             // nudPortion
             // 
@@ -688,6 +697,7 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(3, 82);
@@ -699,6 +709,8 @@
             // 
             // tabPageFoodSortReport
             // 
+            this.tabPageFoodSortReport.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPageFoodSortReport.Controls.Add(this.label3);
             this.tabPageFoodSortReport.Controls.Add(this.dgvSnack);
             this.tabPageFoodSortReport.Controls.Add(this.dgvDinner);
             this.tabPageFoodSortReport.Controls.Add(this.button3);
@@ -713,7 +725,106 @@
             this.tabPageFoodSortReport.Size = new System.Drawing.Size(1087, 708);
             this.tabPageFoodSortReport.TabIndex = 4;
             this.tabPageFoodSortReport.Text = "FoodSortReport";
-            this.tabPageFoodSortReport.UseVisualStyleBackColor = true;
+            // 
+            // dgvSnack
+            // 
+            this.dgvSnack.AllowUserToAddRows = false;
+            this.dgvSnack.AllowUserToDeleteRows = false;
+            this.dgvSnack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSnack.Location = new System.Drawing.Point(559, 455);
+            this.dgvSnack.Name = "dgvSnack";
+            this.dgvSnack.ReadOnly = true;
+            this.dgvSnack.RowHeadersWidth = 51;
+            this.dgvSnack.RowTemplate.Height = 24;
+            this.dgvSnack.Size = new System.Drawing.Size(510, 224);
+            this.dgvSnack.TabIndex = 9;
+            // 
+            // dgvDinner
+            // 
+            this.dgvDinner.AllowUserToAddRows = false;
+            this.dgvDinner.AllowUserToDeleteRows = false;
+            this.dgvDinner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDinner.Location = new System.Drawing.Point(21, 455);
+            this.dgvDinner.Name = "dgvDinner";
+            this.dgvDinner.ReadOnly = true;
+            this.dgvDinner.RowHeadersWidth = 51;
+            this.dgvDinner.RowTemplate.Height = 24;
+            this.dgvDinner.Size = new System.Drawing.Size(510, 224);
+            this.dgvDinner.TabIndex = 8;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.button3.Location = new System.Drawing.Point(559, 377);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(510, 72);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Snack";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.button4.Location = new System.Drawing.Point(21, 377);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(510, 72);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Dinner";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // dgvLunch
+            // 
+            this.dgvLunch.AllowUserToAddRows = false;
+            this.dgvLunch.AllowUserToDeleteRows = false;
+            this.dgvLunch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLunch.Location = new System.Drawing.Point(559, 137);
+            this.dgvLunch.Name = "dgvLunch";
+            this.dgvLunch.ReadOnly = true;
+            this.dgvLunch.RowHeadersWidth = 51;
+            this.dgvLunch.RowTemplate.Height = 24;
+            this.dgvLunch.Size = new System.Drawing.Size(510, 224);
+            this.dgvLunch.TabIndex = 5;
+            // 
+            // dgvBreakfast
+            // 
+            this.dgvBreakfast.AllowUserToAddRows = false;
+            this.dgvBreakfast.AllowUserToDeleteRows = false;
+            this.dgvBreakfast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBreakfast.Location = new System.Drawing.Point(21, 137);
+            this.dgvBreakfast.Name = "dgvBreakfast";
+            this.dgvBreakfast.ReadOnly = true;
+            this.dgvBreakfast.RowHeadersWidth = 51;
+            this.dgvBreakfast.RowTemplate.Height = 24;
+            this.dgvBreakfast.Size = new System.Drawing.Size(510, 224);
+            this.dgvBreakfast.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.button2.Location = new System.Drawing.Point(559, 59);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(510, 72);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Lunch";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.button1.Location = new System.Drawing.Point(21, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(510, 72);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Breakfast";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnFoodSortReport
             // 
@@ -778,89 +889,40 @@
             this.btnDailyReport.UseVisualStyleBackColor = false;
             this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
-            // button1
+            // btnAppUser
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(20, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(510, 72);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Breakfast";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAppUser.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnAppUser.Enabled = false;
+            this.btnAppUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAppUser.Location = new System.Drawing.Point(491, 211);
+            this.btnAppUser.Name = "btnAppUser";
+            this.btnAppUser.Size = new System.Drawing.Size(276, 32);
+            this.btnAppUser.TabIndex = 35;
+            this.btnAppUser.Text = "User";
+            this.btnAppUser.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnMealCal
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(558, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(510, 72);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Lunch";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMealCal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnMealCal.Enabled = false;
+            this.btnMealCal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMealCal.Location = new System.Drawing.Point(294, 75);
+            this.btnMealCal.Name = "btnMealCal";
+            this.btnMealCal.Size = new System.Drawing.Size(134, 52);
+            this.btnMealCal.TabIndex = 36;
+            this.btnMealCal.Text = "0 cal";
+            this.btnMealCal.UseVisualStyleBackColor = false;
             // 
-            // dgvBreakfast
+            // label3
             // 
-            this.dgvBreakfast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBreakfast.Location = new System.Drawing.Point(20, 123);
-            this.dgvBreakfast.Name = "dgvBreakfast";
-            this.dgvBreakfast.RowHeadersWidth = 51;
-            this.dgvBreakfast.RowTemplate.Height = 24;
-            this.dgvBreakfast.Size = new System.Drawing.Size(510, 224);
-            this.dgvBreakfast.TabIndex = 4;
-            // 
-            // dgvLunch
-            // 
-            this.dgvLunch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLunch.Location = new System.Drawing.Point(558, 123);
-            this.dgvLunch.Name = "dgvLunch";
-            this.dgvLunch.RowHeadersWidth = 51;
-            this.dgvLunch.RowTemplate.Height = 24;
-            this.dgvLunch.Size = new System.Drawing.Size(510, 224);
-            this.dgvLunch.TabIndex = 5;
-            // 
-            // dgvSnack
-            // 
-            this.dgvSnack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSnack.Location = new System.Drawing.Point(558, 441);
-            this.dgvSnack.Name = "dgvSnack";
-            this.dgvSnack.RowHeadersWidth = 51;
-            this.dgvSnack.RowTemplate.Height = 24;
-            this.dgvSnack.Size = new System.Drawing.Size(510, 224);
-            this.dgvSnack.TabIndex = 9;
-            // 
-            // dgvDinner
-            // 
-            this.dgvDinner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDinner.Location = new System.Drawing.Point(20, 441);
-            this.dgvDinner.Name = "dgvDinner";
-            this.dgvDinner.RowHeadersWidth = 51;
-            this.dgvDinner.RowTemplate.Height = 24;
-            this.dgvDinner.Size = new System.Drawing.Size(510, 224);
-            this.dgvDinner.TabIndex = 8;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(558, 363);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(510, 72);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Snack";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(20, 363);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(510, 72);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Dinner";
-            this.button4.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(251, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(596, 29);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "The Most Consumed Foods According to Mealtypes";
             // 
             // Form1
             // 
@@ -897,10 +959,11 @@
             this.tabPageAddQuickFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPortion)).EndInit();
             this.tabPageFoodSortReport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBreakfast)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLunch)).EndInit();
+            this.tabPageFoodSortReport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSnack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDinner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLunch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBreakfast)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -916,7 +979,6 @@
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Button btnDrinkCal;
         private System.Windows.Forms.Button btnSnackCal;
-        private System.Windows.Forms.Button btnMealCal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -973,6 +1035,9 @@
         private System.Windows.Forms.DataGridView dgvDinner;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnMealCal;
+        private System.Windows.Forms.Button btnAppUser;
+        private System.Windows.Forms.Label label3;
     }
 }
 

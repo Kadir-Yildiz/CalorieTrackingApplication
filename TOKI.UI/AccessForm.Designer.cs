@@ -256,6 +256,7 @@
             this.txtPasswordd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPasswordd.Location = new System.Drawing.Point(151, 331);
             this.txtPasswordd.Name = "txtPasswordd";
+            this.txtPasswordd.PasswordChar = '*';
             this.txtPasswordd.Size = new System.Drawing.Size(266, 26);
             this.txtPasswordd.TabIndex = 12;
             // 

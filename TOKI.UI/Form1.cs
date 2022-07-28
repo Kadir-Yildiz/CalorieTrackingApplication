@@ -34,7 +34,7 @@ namespace TOKI.UI
             cbMealTypeReport.Text = "All";
             cbFoodCategoryReport.Text = "All";
             FoodSortReport();
-
+            btnAppUser.Text = appUser.FirstName + " " + appUser.LastName;
 
         }
 
@@ -67,24 +67,40 @@ namespace TOKI.UI
             {
                 Context db = new Context();
                 Food food = new Food();
-                food.Name = txtFoodName.Text;
-                food.Calories = Convert.ToDouble(nudCal.Value);
-                food.CategoryName = cbFoodCategory.SelectedItem.ToString();
 
-                if (pictureBoxPhoto.Image == null)
+                int id = (int)dgvFoods.CurrentRow.Cells[0].Value;
+                if (db.Foods.Any(x => x.Id == id))
                 {
+                    var list = db.Foods.Where(x => x.Id == id).ToList();
 
+                    Food food1 = list[0];
+                    food1.Name = txtFoodName.Text;
+                    food1.Calories = (double)nudCal.Value;
+                    food1.CategoryName = cbFoodCategory.Text;
+                    db.SaveChanges();
+                    MessageBox.Show("The Food is Updated!");
+                    UpdateDgvFoods();
                 }
                 else
                 {
-                    food.FoodImage = ConvertFiltoByte(this.pictureBoxPhoto.ImageLocation);
+                    food.Name = txtFoodName.Text;
+                    food.Calories = Convert.ToDouble(nudCal.Value);
+                    food.CategoryName = cbFoodCategory.SelectedItem.ToString();
+                    if (pictureBoxPhoto.Image == null)
+                    {
+
+                    }
+                    else
+                    {
+                        food.FoodImage = ConvertFiltoByte(this.pictureBoxPhoto.ImageLocation);
+                    }
+                    db.Foods.Add(food);
+                    db.SaveChanges();
+                    MessageBox.Show("The Food Added successfully!");
+                    UpdateDgvFoods();
+                    listView1.Items.Clear();
+                    AddFoods();
                 }
-                db.Foods.Add(food);
-                db.SaveChanges();
-                MessageBox.Show("The Food Added successfully!");
-                UpdateDgvFoods();
-                listView1.Items.Clear();
-                AddFoods();
             }
             catch
             {
@@ -132,7 +148,7 @@ namespace TOKI.UI
                 }
                 listView1.LargeImageList = images;
                 i++;
-                listView1.LargeImageList.ImageSize = new System.Drawing.Size(120, 120);
+                listView1.LargeImageList.ImageSize = new System.Drawing.Size(150, 150);
             }
 
         }
@@ -285,7 +301,11 @@ namespace TOKI.UI
         private void ShowCalOfDay()
         {
             Context db = new Context();
+
+            if (db.Reports.Where(r => r.Date >= DateTime.Today).Count()>0)
+            {
             int sumofCal = Convert.ToInt32(db.Reports.Where(r => r.Date >= DateTime.Today).Sum(x => x.FoodCal));
+            }
             var list = db.Reports.Where(r => r.Date >= DateTime.Today).ToList();
             double sum = 0;
             foreach (var item in list)
@@ -495,8 +515,8 @@ namespace TOKI.UI
             }).Select(g => new
             {
                 Name = g.Key.Name,
-                Calories = g.Where(x => x.MealType == "Breakfast").Select(x => x.Calories).Sum(),
                 BreakfastPortion = g.Where(x => x.MealType == "Breakfast").Select(x => x.Portion).Sum(),
+                Calories = g.Where(x => x.MealType == "Breakfast").Select(x => x.Calories).Sum(),
             }).OrderByDescending(f => f.BreakfastPortion);
 
             dgvBreakfast.DataSource = breakfast.ToList();
@@ -510,8 +530,8 @@ namespace TOKI.UI
             }).Select(g => new
             {
                 Name = g.Key.Name,
-                Calories = g.Where(x => x.MealType == "Lunch").Select(x => x.Calories).Sum(),
                 LunchPortion = g.Where(x => x.MealType == "Lunch").Select(x => x.Portion).Sum(),
+                Calories = g.Where(x => x.MealType == "Lunch").Select(x => x.Calories).Sum(),
             }).OrderByDescending(f => f.LunchPortion);
 
             dgvLunch.DataSource = lunch.ToList();
@@ -522,8 +542,8 @@ namespace TOKI.UI
             }).Select(g => new
             {
                 Name = g.Key.Name,
-                Calories = g.Where(x => x.MealType == "Dinner").Select(x => x.Calories).Sum(),
                 DinnerPortion = g.Where(x => x.MealType == "Dinner").Select(x => x.Portion).Sum(),
+                Calories = g.Where(x => x.MealType == "Dinner").Select(x => x.Calories).Sum(),
             }).OrderByDescending(f => f.DinnerPortion);
 
             dgvDinner.DataSource = dinner.ToList();
@@ -537,21 +557,26 @@ namespace TOKI.UI
             }).Select(g => new
             {
                 Name = g.Key.Name,
-                Calories = g.Where(x => x.MealType == "Snack").Select(x => x.Calories).Sum(),
                 SnackPortion = g.Where(x => x.MealType == "Snack").Select(x => x.Portion).Sum(),
+                Calories = g.Where(x => x.MealType == "Snack").Select(x => x.Calories).Sum(),
             }).OrderByDescending(f => f.SnackPortion);
 
             dgvSnack.DataSource = snack.ToList();
 
+        }
 
+        private void dgvFoods_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)dgvFoods.CurrentRow.Cells[0].Value;
 
+            Context db = new Context();
+            var list = db.Foods.Where(x => x.Id == id).ToList();
 
+            Food food = list[0];
 
-
-
-
-
-
+            txtFoodName.Text = food.Name;
+            nudCal.Value = (decimal)food.Calories;
+            cbFoodCategory.Text = food.CategoryName;
         }
     }
 }
