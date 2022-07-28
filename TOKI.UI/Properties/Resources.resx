@@ -121,7 +121,16 @@
   <data name="5402435_account_profile_user_avatar_man_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5402435_account_profile_user_avatar_man_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="3005766_account_door_exit_logout_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3005766_account_door_exit_logout_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AccessPage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccessPage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="defaultfood" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\defaultfood.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3005766_account_door_exit_logout_icon (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3005766_account_door_exit_logout_icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

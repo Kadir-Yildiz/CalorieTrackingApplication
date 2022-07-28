@@ -63,9 +63,39 @@ namespace TOKI.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3005766_account_door_exit_logout_icon {
+            get {
+                object obj = ResourceManager.GetObject("3005766_account_door_exit_logout_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3005766_account_door_exit_logout_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("3005766_account_door_exit_logout_icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _5402435_account_profile_user_avatar_man_icon {
             get {
                 object obj = ResourceManager.GetObject("5402435_account_profile_user_avatar_man_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AccessPage {
+            get {
+                object obj = ResourceManager.GetObject("AccessPage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

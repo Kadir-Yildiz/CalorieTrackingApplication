@@ -39,14 +39,15 @@ namespace TOKI.UI
             txtEmail.Text = "admin";
             txtEmailAddress.Text = "gmail";
             txtPassword.Text = "admin";
-            
 
+            pnlSignUp.Visible = false;
+            pbDescription.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string email1 = txtEmail.Text;
-            string email2 = txtEmailAddress.Text;
+            string email1 = txtEmail.Text.Trim();
+            string email2 = txtEmailAddress.Text.Trim();
             string email = email1 + "@" + email2 + ".com";
             string password = txtPassword.Text;
             Context db = new Context();
@@ -72,6 +73,7 @@ namespace TOKI.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             Context db = new Context();
             AppUser user = new AppUser();
             user.FirstName = txtFirstName.Text;
@@ -92,6 +94,17 @@ namespace TOKI.UI
             }
             db.AppUsers.Add(user);
             db.SaveChanges();
+            MessageBox.Show("Your account is created successfully!");
+            Form1 f = new Form1(user);
+            f.Show();
+            this.Hide();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pbDescription.Visible = false;
+            pnlSignUp.Visible = true;
         }
     }
 }

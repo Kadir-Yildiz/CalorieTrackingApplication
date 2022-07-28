@@ -23,6 +23,7 @@ namespace TOKI.UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            AddSample();
             AddFoods();
             UpdateComboBox();
             UpdateDailyReport();
@@ -30,7 +31,6 @@ namespace TOKI.UI
             ShowCalOfDay();
             cbMealType.SelectedIndex = 0;
             UpdateDgvFoods();
-            AddSample();
             cbMealTypeReport.Text = "All";
             cbFoodCategoryReport.Text = "All";
             FoodSortReport();
@@ -253,7 +253,9 @@ namespace TOKI.UI
         private void UpdateDailyReport()
         {
             Context db = new Context();
-            var reports = db.Reports.Where(r => r.Date >= DateTime.Today)
+            if (db.Reports.Where(r => r.Date >= DateTime.Today && r.UserName == appUser.UserName).Count() > 0)
+            {
+                var reports = db.Reports.Where(r => r.Date >= DateTime.Today && r.UserName == appUser.UserName)
                 .Select(x => new
                 {
                     Id = x.Id,
@@ -266,47 +268,50 @@ namespace TOKI.UI
                     Date = x.Date
                 })
                 .ToList();
-            dgvDailyReport.DataSource = reports;
-            double SumMeal = 0;
-            double SumSnack = 0;
-            double SumDrink = 0;
-            double SumOther = 0;
+                dgvDailyReport.DataSource = reports;
+                double SumMeal = 0;
+                double SumSnack = 0;
+                double SumDrink = 0;
+                double SumOther = 0;
 
-            foreach (var item in reports)
-            {
-                if (item.CategoryName == "Meal")
+                foreach (var item in reports)
                 {
-                    SumMeal += item.Calories;
-                }
-                else if (item.CategoryName == "Snack")
-                {
-                    SumSnack += item.Calories;
-                }
+                    if (item.CategoryName == "Meal")
+                    {
+                        SumMeal += item.Calories;
+                    }
+                    else if (item.CategoryName == "Snack")
+                    {
+                        SumSnack += item.Calories;
+                    }
 
-                else if (item.CategoryName == "Drink")
-                {
-                    SumDrink += item.Calories;
+                    else if (item.CategoryName == "Drink")
+                    {
+                        SumDrink += item.Calories;
+                    }
+                    else
+                    {
+                        SumOther += item.Calories;
+                    }
                 }
-                else
-                {
-                    SumOther += item.Calories;
-                }
+                btnMealCal.Text = SumMeal.ToString() + " Cal";
+                btnSnackCal.Text = SumSnack.ToString() + " Cal";
+                btnDrinkCal.Text = SumDrink.ToString() + " Cal";
+                btnOther.Text = SumOther.ToString() + " Cal";
+
             }
-            btnMealCal.Text = SumMeal.ToString() + " Cal";
-            btnSnackCal.Text = SumSnack.ToString() + " Cal";
-            btnDrinkCal.Text = SumDrink.ToString() + " Cal";
-            btnOther.Text = SumOther.ToString() + " Cal";
+                
         }
 
         private void ShowCalOfDay()
         {
             Context db = new Context();
 
-            if (db.Reports.Where(r => r.Date >= DateTime.Today).Count()>0)
+            if (db.Reports.Where(r => r.Date >= DateTime.Today && r.UserName == appUser.UserName).Count()>0)
             {
-            int sumofCal = Convert.ToInt32(db.Reports.Where(r => r.Date >= DateTime.Today).Sum(x => x.FoodCal));
+            int sumofCal = Convert.ToInt32(db.Reports.Where(r => r.Date >= DateTime.Today && r.UserName == appUser.UserName).Sum(x => x.FoodCal));
             }
-            var list = db.Reports.Where(r => r.Date >= DateTime.Today).ToList();
+            var list = db.Reports.Where(r => r.Date >= DateTime.Today && r.UserName == appUser.UserName).ToList();
             double sum = 0;
             foreach (var item in list)
             {
@@ -380,21 +385,32 @@ namespace TOKI.UI
         private void AddSample()
         {
             Context db = new Context();
-            Food food = new Food();
-            food.Name = "Pasta";
-            food.Calories = 120;
-            food.CategoryName = "Meal";
-            if (db.Foods.Any(x => x.Name == "Pasta"))
-            {
 
-            }
-            else
+            if (db.FoodCategories.Count() == 0)
             {
-                db.Foods.Add(food);
+                db.FoodCategories.Add(new FoodCategory { Name = "Meal" });
+                db.FoodCategories.Add(new FoodCategory { Name = "Fruit" });
+                db.FoodCategories.Add(new FoodCategory { Name = "Drink" });
+                db.FoodCategories.Add(new FoodCategory { Name = "FastFood" });
+                db.FoodCategories.Add(new FoodCategory { Name = "Soup" });
+                db.FoodCategories.Add(new FoodCategory { Name = "Vegetable" });
+                db.FoodCategories.Add(new FoodCategory { Name = "Dessert" });
+            }
+            if (db.Foods.Count()==0)
+            {
+                db.Foods.Add(new Food { Name = "Pasta", Calories = 120, CategoryName = "Meal" });
+                db.Foods.Add(new Food { Name = "Kebab", Calories = 250, CategoryName = "Meal" });
+                db.Foods.Add(new Food { Name = "WaterMelon", Calories = 80, CategoryName = "Fruit" });
+                db.Foods.Add(new Food { Name = "Cola", Calories = 50, CategoryName = "Drink" });
+                db.Foods.Add(new Food { Name = "Burger", Calories = 200, CategoryName = "FastFood" });
+                db.Foods.Add(new Food { Name = "Soup", Calories = 80, CategoryName = "Soup" });
+                db.Foods.Add(new Food { Name = "Ceasar Salad", Calories = 70, CategoryName = "Vegetable" });
+                db.Foods.Add(new Food { Name = "Cake", Calories = 120, CategoryName = "Dessert" });
+                db.Foods.Add(new Food { Name = "Pepperoni Pizza", Calories = 300, CategoryName = "Meal" });
+                db.Foods.Add(new Food { Name = "Chicken Wrap", Calories = 160, CategoryName = "Meal" });
                 db.SaveChanges();
             }
-            FoodCategory fc = new FoodCategory();
-            //fc.Name=""
+            
             if (db.MealTypes.Count() == 0)
             {
                 db.MealTypes.Add(new MealType { Name = "Breakfast" });
@@ -402,6 +418,7 @@ namespace TOKI.UI
                 db.MealTypes.Add(new MealType { Name = "Snack" });
                 db.MealTypes.Add(new MealType { Name = "Dinner" });
             }
+            
 
 
 
@@ -500,68 +517,74 @@ namespace TOKI.UI
         private void FoodSortReport()
         {
             Context db = new Context();
-            var foods = db.Reports.Select(x => new
+
+            if (db.Reports.Where(r => r.Date >= DateTime.Today && r.UserName == appUser.UserName).Count() > 0)
             {
-                Name = x.FoodName,
-                Portion = x.Portion,
-                Calories = x.FoodCal,
-                MealType = x.MealType,
-            }).ToList();
+                var foods = db.Reports.Select(x => new
+                {
+                    Name = x.FoodName,
+                    Portion = x.Portion,
+                    Calories = x.FoodCal,
+                    MealType = x.MealType,
+                }).ToList();
 
 
-            var breakfast = foods.GroupBy(f => new
-            {
-                Name = f.Name,
-            }).Select(g => new
-            {
-                Name = g.Key.Name,
-                BreakfastPortion = g.Where(x => x.MealType == "Breakfast").Select(x => x.Portion).Sum(),
-                Calories = g.Where(x => x.MealType == "Breakfast").Select(x => x.Calories).Sum(),
-            }).OrderByDescending(f => f.BreakfastPortion);
+                var breakfast = foods.GroupBy(f => new
+                {
+                    Name = f.Name,
+                }).Select(g => new
+                {
+                    Name = g.Key.Name,
+                    BreakfastPortion = g.Where(x => x.MealType == "Breakfast").Select(x => x.Portion).Sum(),
+                    Calories = g.Where(x => x.MealType == "Breakfast").Select(x => x.Calories).Sum(),
+                }).OrderByDescending(f => f.BreakfastPortion);
 
-            dgvBreakfast.DataSource = breakfast.ToList();
-
-
-
-
-            var lunch = foods.GroupBy(f => new
-            {
-                Name = f.Name,
-            }).Select(g => new
-            {
-                Name = g.Key.Name,
-                LunchPortion = g.Where(x => x.MealType == "Lunch").Select(x => x.Portion).Sum(),
-                Calories = g.Where(x => x.MealType == "Lunch").Select(x => x.Calories).Sum(),
-            }).OrderByDescending(f => f.LunchPortion);
-
-            dgvLunch.DataSource = lunch.ToList();
-
-            var dinner = foods.GroupBy(f => new
-            {
-                Name = f.Name,
-            }).Select(g => new
-            {
-                Name = g.Key.Name,
-                DinnerPortion = g.Where(x => x.MealType == "Dinner").Select(x => x.Portion).Sum(),
-                Calories = g.Where(x => x.MealType == "Dinner").Select(x => x.Calories).Sum(),
-            }).OrderByDescending(f => f.DinnerPortion);
-
-            dgvDinner.DataSource = dinner.ToList();
+                dgvBreakfast.DataSource = breakfast.ToList();
 
 
 
 
-            var snack = foods.GroupBy(f => new
-            {
-                Name = f.Name,
-            }).Select(g => new
-            {
-                Name = g.Key.Name,
-                SnackPortion = g.Where(x => x.MealType == "Snack").Select(x => x.Portion).Sum(),
-                Calories = g.Where(x => x.MealType == "Snack").Select(x => x.Calories).Sum(),
-            }).OrderByDescending(f => f.SnackPortion);
+                var lunch = foods.GroupBy(f => new
+                {
+                    Name = f.Name,
+                }).Select(g => new
+                {
+                    Name = g.Key.Name,
+                    LunchPortion = g.Where(x => x.MealType == "Lunch").Select(x => x.Portion).Sum(),
+                    Calories = g.Where(x => x.MealType == "Lunch").Select(x => x.Calories).Sum(),
+                }).OrderByDescending(f => f.LunchPortion);
 
-            dgvSnack.DataSource = snack.ToList();
+                dgvLunch.DataSource = lunch.ToList();
+
+                var dinner = foods.GroupBy(f => new
+                {
+                    Name = f.Name,
+                }).Select(g => new
+                {
+                    Name = g.Key.Name,
+                    DinnerPortion = g.Where(x => x.MealType == "Dinner").Select(x => x.Portion).Sum(),
+                    Calories = g.Where(x => x.MealType == "Dinner").Select(x => x.Calories).Sum(),
+                }).OrderByDescending(f => f.DinnerPortion);
+
+                dgvDinner.DataSource = dinner.ToList();
+
+
+
+
+                var snack = foods.GroupBy(f => new
+                {
+                    Name = f.Name,
+                }).Select(g => new
+                {
+                    Name = g.Key.Name,
+                    SnackPortion = g.Where(x => x.MealType == "Snack").Select(x => x.Portion).Sum(),
+                    Calories = g.Where(x => x.MealType == "Snack").Select(x => x.Calories).Sum(),
+                }).OrderByDescending(f => f.SnackPortion);
+
+                dgvSnack.DataSource = snack.ToList();
+
+            }
+               
 
         }
 
@@ -577,6 +600,13 @@ namespace TOKI.UI
             txtFoodName.Text = food.Name;
             nudCal.Value = (decimal)food.Calories;
             cbFoodCategory.Text = food.CategoryName;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AccessForm accessForm = new AccessForm();
+            this.Hide();
+            accessForm.Show();
         }
     }
 }

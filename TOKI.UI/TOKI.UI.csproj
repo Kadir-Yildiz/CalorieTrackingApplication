@@ -151,6 +151,15 @@
   <ItemGroup>
     <None Include="Resources\defaultfood.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AccessPage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3005766_account_door_exit_logout_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3005766_account_door_exit_logout_icon %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
