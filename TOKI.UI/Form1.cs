@@ -173,7 +173,7 @@ namespace TOKI.UI
 
             foreach (var fc in ctgry)
             {
-                if (cbFoodCategory.Items.Contains(fc.Name))
+                if (cbFoodCategory.Text!="")
                 {
 
                 }
@@ -185,7 +185,7 @@ namespace TOKI.UI
             }
             foreach (var fc in ctgry)
             {
-                if (cbFoodCategoryReport.Items.Contains(fc.Name))
+                if (cbFoodCategoryReport.Text!= "")
                 {
 
                 }
@@ -197,7 +197,7 @@ namespace TOKI.UI
             }
             foreach (var mt in mealtype)
             {
-                if (cbMealType.Items.Contains(mt.Name))
+                if (cbMealType.Text != "")
                 {
 
                 }
@@ -209,7 +209,7 @@ namespace TOKI.UI
             }
             foreach (var mt in mealtype)
             {
-                if (cbMealTypeReport.Items.Contains(mt.Name))
+                if (cbMealTypeReport.Text!="")
                 {
 
                 }
