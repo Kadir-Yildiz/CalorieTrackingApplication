@@ -80,6 +80,10 @@ namespace TOKI.UI
                     db.SaveChanges();
                     MessageBox.Show("The Food is Updated!");
                     UpdateDgvFoods();
+                    dgvFoods.ClearSelection();
+                    txtFoodName.Clear();
+                    nudCal.Value = 0;
+                    cbFoodCategory.SelectedIndex = 0;
                 }
                 else
                 {
@@ -100,6 +104,8 @@ namespace TOKI.UI
                     UpdateDgvFoods();
                     listView1.Items.Clear();
                     AddFoods();
+                    
+
                 }
             }
             catch
@@ -417,6 +423,7 @@ namespace TOKI.UI
                 db.MealTypes.Add(new MealType { Name = "Lunch" });
                 db.MealTypes.Add(new MealType { Name = "Snack" });
                 db.MealTypes.Add(new MealType { Name = "Dinner" });
+                db.SaveChanges();
             }
             
 
