@@ -18,7 +18,7 @@ namespace TOKI.UI
         {
             InitializeComponent();
             appUser = user;
-
+            // !!!   Please write  Update-Database  to  Package Manager Console before start !!!
         }
 
         private void Form1_Load(object sender, EventArgs e)
