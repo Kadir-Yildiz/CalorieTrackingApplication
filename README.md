@@ -28,11 +28,11 @@ This program is all about tracking your daily calorie intake. You, the user, can
 <a href="https://github.com/Kadir-Yildiz/CalorieTrackingApplication/blob/master/ProjectsImages/1.jpg?raw=true" target="_blank">
 <img src="https://github.com/Kadir-Yildiz/CalorieTrackingApplication/blob/master/ProjectsImages/1.jpg?raw=true" width="200" style="max-width:100%;"></a>
 
-<a href="https://github.com/eymeneruyar/Java-SpringMVC-VetClinic-Project/blob/main/Project%20Images/2.jpg" target="_blank">
-<img src="https://github.com/eymeneruyar/Java-SpringMVC-VetClinic-Project/blob/main/Project%20Images/2.jpg" width="200" style="max-width:100%;"></a>
+<a href="https://github.com/Kadir-Yildiz/CalorieTrackingApplication/blob/master/ProjectsImages/2.jpg?raw=true" target="_blank">
+<img src="https://github.com/Kadir-Yildiz/CalorieTrackingApplication/blob/master/ProjectsImages/2.jpg?raw=true" width="200" style="max-width:100%;"></a>
 
-<a href="https://github.com/eymeneruyar/Java-SpringMVC-VetClinic-Project/blob/main/Project%20Images/3.jpg" target="_blank">
-<img src="https://github.com/eymeneruyar/Java-SpringMVC-VetClinic-Project/blob/main/Project%20Images/3.jpg" width="200" style="max-width:100%;"></a>
+<a href="https://github.com/Kadir-Yildiz/CalorieTrackingApplication/blob/master/ProjectsImages/4.jpg?raw=true" target="_blank">
+<img src="https://github.com/Kadir-Yildiz/CalorieTrackingApplication/blob/master/ProjectsImages/4.jpg?raw=true" width="200" style="max-width:100%;"></a>
   
 <a href="https://github.com/eymeneruyar/Java-SpringMVC-VetClinic-Project/blob/main/Project%20Images/4.jpg" target="_blank">
 <img src="https://github.com/eymeneruyar/Java-SpringMVC-VetClinic-Project/blob/main/Project%20Images/4.jpg" width="200" style="max-width:100%;"></a>
